@@ -1,4 +1,8 @@
-
+from pages.Home import show as home
+from pages.Dashboard import show as dashboard
+from pages.Paste import show as paste
+from pages.Download import show as download
+from pages.Emotion import show as emotion
 import streamlit as st
 
 st.set_page_config(page_title="YouTube Sentiment Tracker", layout="wide")
