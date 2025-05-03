@@ -1,44 +1,23 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 from pages.Home import show as home
 from pages.Dashboard import show as dashboard
 from pages.Paste import show as paste
 from pages.Download import show as download
-from pages.Emotion import show as emotion
-import streamlit as st
 
-# ✅ Set page config FIRST
-st.set_page_config(page_title="YouTube Sentiment & Emotion Tracker", layout="wide")
+# Set page config as the first Streamlit command
+st.set_page_config(page_title="YouTube Sentiment Tracker", layout="wide")
 
-# Now the rest of your code
-st.title("Welcome to the Sentiment & Emotion Tracker")
-# ...
-
-
-
-
-
-
+# Sidebar for navigation
 st.sidebar.title("Navigation")
-app_mode = st.sidebar.radio("Go to", ["Home", "Paste Comments", "Dashboard", "Emotion Analysis", "Download Data"])
+page = st.sidebar.radio("Go to", ["Home", "Dashboard", "Paste", "Download"])
 
-if app_mode == "Home":
-    from pages.Home import show as home
+# Route to each page
+if page == "Home":
     home()
-
-elif app_mode == "Paste Comments":
-    from pages.Paste import show as paste
-    paste()
-
-elif app_mode == "Dashboard":
-    from pages.Dashboard import show as dashboard
+elif page == "Dashboard":
     dashboard()
-
-elif app_mode == "Emotion Analysis":
-    from pages.Emotion import show as emotion
-    emotion()
-
-elif app_mode == "Download Data":
-    from pages.Download import show as download
+elif page == "Paste":
+    paste()
+elif page == "Download":
     download()
+
